@@ -1,0 +1,31 @@
+.navFull{
+    display: inline-block;
+    position: relative;
+    flex-direction: row;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.685);
+    border-bottom: 1px solid black;
+    
+}
+
+.divImage{
+    display: flex;
+}
+
+.divImage img{
+    float: left
+}
+
+.divButt{
+    text-align: center;
+}
+
+#aButt{
+    text-decoration: none;
+    color: white;
+    margin-left: 3vw;
+    font-weight: 900;
+    padding-bottom: 1em;
+    text-shadow: -1px -1px 0 black,1px -1px 0 black,-1px  1px 0 black,1px  1px 0 black; 
+}
+
