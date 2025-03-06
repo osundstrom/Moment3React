@@ -12,12 +12,21 @@ footer {
     margin-top: 2vh;
 }
 
+.topButt{
+    width: fit-content;
+    margin-top: 1vh;
+}
+
+footer div{
+    text-align: center;
+}
 
 .Pfooter a{
     color: black;
     text-decoration: none;
     font-weight: 600;
 }
+
 
 .Pfooter a:hover{
     text-decoration: underline;

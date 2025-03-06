@@ -18,6 +18,7 @@ function Header() {
                 <div className="container">
                 <Link id="aButt" to="/">Hem</Link>
                 <Link id="aButt" to="/Om">Om</Link>
+                <Link id="loginButt" to="/Login">&#128274;</Link>
                 </div>
                 
             </nav>

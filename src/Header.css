@@ -22,10 +22,16 @@
 
 #aButt{
     text-decoration: none;
-    color: white;
+    color: #000000;
     margin-left: 3vw;
     font-weight: 900;
     padding-bottom: 1em;
-    text-shadow: -1px -1px 0 black,1px -1px 0 black,-1px  1px 0 black,1px  1px 0 black; 
+    /*text-shadow: -1px -1px 0 #000000,1px -1px 0 #000000,-1px  1px 0 #000000,1px  1px 0 #000000;*/ 
+
+}
+
+#aButt:hover{
+    text-decoration: underline;
+    color: rgba(2, 100, 190, 0.589);
 }
 

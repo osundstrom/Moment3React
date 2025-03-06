@@ -7,6 +7,9 @@ import { Routes, Route } from 'react-router-dom';
 import InfoArticle from "./components/InfoArticle";
 import About from "./Pages/About";
 import AllArticles from './components/AllArticles.tsx';
+import Login from './Pages/Login.tsx';
+import Secret from './Pages/Secret.tsx';
+import CheckCookie from './components/CheckCookie.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -16,8 +19,17 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/" element={<App />}>
             <Route index element={<AllArticles />} />
             <Route path="/articles/:id" element={<InfoArticle />} />
-            <Route path="om" element={<About />} />
+            <Route path="/om" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route 
+                  path="/secret" element={
+                    <CheckCookie>
+                      <Secret />
+                    </CheckCookie>
+                  } 
+                />
             </Route>
+            
         </Routes>
     </BrowserRouter>
   </StrictMode>
