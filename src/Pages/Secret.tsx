@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 import AddArticle from "../components/AddArticle";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import "../secret.css";
 
 //-----------------Interface--------------------------------------------------------//
 
@@ -24,11 +25,20 @@ const Secret = () => {
 const [articles, setArticles] = useState<OneArticle[] | []>([]);
 const [loading, setLoading] = useState<boolean>(false);
 const [error, setError] = useState<string | null>(null); 
-
+const navigate = useNavigate();
 
 useEffect(() => {
+  const token = Cookies.get("token");
+
+  console.log( token); 
+  if (!token) {
+    navigate("/Login");
+  } 
+  
   fetchArticles();
-}, []);
+  
+  
+}, [navigate]);
 
 //----------------------------------Fetch------------------------------------------//
 
@@ -72,7 +82,8 @@ const fetchArticles = async () => {
               {articles.length > 0 ? (
                 articles.map((article) => (
                   <div key={article._id} className="col-12">
-                    <Link to={`/secret/redigera/${article._id}`}>&#x270E; {article.title}</Link>
+                    <Link className="aArticles" to={`/secret/redigera/${article._id}`}>{article.title}</Link>
+                    <hr />
                   </div>
                 ))
               ) : (

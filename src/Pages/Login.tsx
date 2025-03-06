@@ -12,11 +12,6 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const openLogin = () => {
-        
-    }
-
-
     const fetchLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
@@ -34,7 +29,7 @@ const Login = () => {
             throw new Error(data.error);
         }else {
 
-            Cookies.set("token", data.recivedToken.token, {expires: 1, secure: true});
+            Cookies.set("token", data.recivedToken.token, {expires: 1});
             console.log(data.token)
             navigate("/Secret");
         

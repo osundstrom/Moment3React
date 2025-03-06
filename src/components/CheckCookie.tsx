@@ -1,16 +1,22 @@
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import { useEffect } from "react";
+
 
 const CheckCookie = ({children}: { children: ReactNode  }) => {
+    const navigate = useNavigate();
+
+    
+  useEffect(() => {
+    
     const token = Cookies.get("token");
-
     if (!token) {
-        return <Navigate to="/login" replace />;
-         
-    }
-
+      navigate("/login"); 
+      }
+    }, [navigate]); 
+    
     return children;
-};
+  };
 
 export default CheckCookie;

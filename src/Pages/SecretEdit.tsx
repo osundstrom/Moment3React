@@ -100,6 +100,7 @@ const imageReader = (e: React.ChangeEvent<HTMLInputElement>) => {
   
       if (!token) {
         setError("Ingen token");
+        navigate("/login");
         return;
       }
   
@@ -123,11 +124,50 @@ const imageReader = (e: React.ChangeEvent<HTMLInputElement>) => {
     } catch (error: any) {
       setError(error.message || "Error vid förfrågan");
       console.log(error);
-    }
-  };
+    }};
+
+//---------------------------------------delete--------------------------------------//
+const deleteArticle = async () => {
+
+      const token = Cookies.get("token");
+  
+      if (!token) {
+        setError("Ingen token");
+        navigate("/login");
+        return;
+      }
+       try {
+      const response = await fetch(`http://localhost:3000/article/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, 
+        },
+        });
+
+      const data = await response.json();
+  
+      if (!response.ok) {
+        throw new Error(data.error || "Kunde ej radera");
+      }
+  
+      navigate("/secret")
+  
+    } catch (error: any) {
+      setError(error.message || "Error vid radering");
+      console.log(error);
+    }};
+
+
+
+
+
+  //-----------------------------------------------------------------------------//
+
   return (
     <div className="container">
-      <h2>Redigera Artikel</h2>
+      <h2>Redigera Artikel </h2>
+      
 
       {error && <p className="text-danger">{error}</p>}
 
@@ -177,19 +217,24 @@ const imageReader = (e: React.ChangeEvent<HTMLInputElement>) => {
             </div>
 
             <div className="mb-3">
-                <label className="form-label" htmlFor="image">Bild:</label>
-                <input className="form-control" id="image" type="file" accept="image/*" onChange={imageReader} />
+                {image && <img src={image} alt="Current" width="100" />}
+                <input className="form-control"  id="image" type="file" accept="image/*" onChange={imageReader} />
             </div>
-
-
-
     
             {error && <p className="error">{error}</p>}
     
-            <button type="submit">
-              Skicka
-            </button>
+            <button className="btn btn-success" type="submit">
+            &#128190; Spara
+            </button >
           </form>
+          <hr />
+          <div className="container" style={{ textAlign: "center" }}>
+          <h6>Radera artikeln helt, detta går inte att ångra!</h6>
+      <button onClick={deleteArticle} className="btn btn-danger mt-3">
+        🗑 Ta bort
+      </button>
+      </div>
+      <hr />
     </div>
   );
 };

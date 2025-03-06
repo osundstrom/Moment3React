@@ -162,8 +162,8 @@ const imageReader = (e: React.ChangeEvent<HTMLInputElement>) => {
     
             {error && <p className="error">{error}</p>}
     
-            <button type="submit">
-              Skicka
+            <button className="btn btn-success" type="submit">
+            &#128190; Spara
             </button>
           </form>
         </div>
