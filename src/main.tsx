@@ -10,6 +10,7 @@ import AllArticles from './components/AllArticles.tsx';
 import Login from './Pages/Login.tsx';
 import Secret from './Pages/Secret.tsx';
 import CheckCookie from './components/CheckCookie.tsx';
+import SecretEdit from './Pages/SecretEdit.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
@@ -28,8 +29,15 @@ createRoot(document.getElementById('root')!).render(
                     </CheckCookie>
                   } 
                 />
-            </Route>
-            
+
+            <Route 
+                  path="/secret/redigera/:id" element={
+                    <CheckCookie>
+                      <SecretEdit />
+                    </CheckCookie>
+                  } 
+                />
+               </Route>
         </Routes>
     </BrowserRouter>
   </StrictMode>

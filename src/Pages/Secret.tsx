@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import AddArticle from "../components/AddArticle";
+import { Link } from "react-router-dom";
 
 
 //-----------------Interface--------------------------------------------------------//
@@ -28,6 +30,7 @@ useEffect(() => {
   fetchArticles();
 }, []);
 
+//----------------------------------Fetch------------------------------------------//
 
 const fetchArticles = async () => {
     try {
@@ -62,13 +65,14 @@ const fetchArticles = async () => {
     <div className="col">
      <div className="p-3">{/*Lista alla artiklar*/}
         <h5>Alla artiklar</h5>
+        <hr />
         {loading && <p>Läser in nyheter...</p>}
         {error && <p>{error}</p>}
-        <div className="row g-4 m-3">
+        <div className="row g-1 m-1">
               {articles.length > 0 ? (
                 articles.map((article) => (
-                  <div key={article._id} className="col-md-4">
-                    <p>{article.title}</p>
+                  <div key={article._id} className="col-12">
+                    <Link to={`/secret/redigera/${article._id}`}>&#x270E; {article.title}</Link>
                   </div>
                 ))
               ) : (
@@ -80,7 +84,7 @@ const fetchArticles = async () => {
     <div className="col">
       <div className="p-3">{/*Formulär för att lägga till artiklar*/}
         <h5>Lägg till</h5>
-
+        <AddArticle/>
       </div>
     </div>
   </div>
