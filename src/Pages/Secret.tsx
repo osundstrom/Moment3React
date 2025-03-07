@@ -63,11 +63,6 @@ const fetchArticles = async () => {
   };
 
 
-
-
-
-
-
 //----------------------Return----------------------------------------------------//
     return (
         <div className="container overflow-hidden text-center">
@@ -82,7 +77,8 @@ const fetchArticles = async () => {
               {articles.length > 0 ? (
                 articles.map((article) => (
                   <div key={article._id} className="col-12">
-                    <Link className="aArticles" to={`/secret/redigera/${article._id}`}>{article.title}</Link>
+                    <Link className="aArticles" to={`/secret/redigera/${article._id}`}>&#9998;{article.title}</Link>
+                    <p className="pArticles">{new Date(article.post_created).toLocaleDateString() + " - " + article.author}</p>
                     <hr />
                   </div>
                 ))
@@ -95,7 +91,7 @@ const fetchArticles = async () => {
     <div className="col">
       <div className="p-3">{/*Formulär för att lägga till artiklar*/}
         <h5>Lägg till</h5>
-        <AddArticle/>
+        <AddArticle onAdded={fetchArticles}/>
       </div>
     </div>
   </div>

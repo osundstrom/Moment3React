@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 
 
-const AddArticle = () => {
+const AddArticle = ({onAdded}: {onAdded: () => void}) => {
     
     const [title, setTitle] = useState<string>("");
     const [description, setDescription] = useState<string>("");
@@ -93,7 +93,17 @@ const imageReader = (e: React.ChangeEvent<HTMLInputElement>) => {
             throw new Error(data.error);
           }
 
-          navigate("/login");
+          setTitle("");
+          setDescription("");
+          setContent("");
+          setAuthor("");
+          setImage("");
+
+          onAdded();
+
+          navigate("/secret");
+         
+          
 
        }catch(error: any) {
         setError(error.message || "Error vid föfrågan")

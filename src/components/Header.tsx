@@ -42,8 +42,8 @@ function Header() {
                 <Link id="aButt" to="/Om">Om</Link>
                 </> ) : (
                     <>
-                    <Link id="aButt" to="/Secret">Översikt</Link>
-                    <Link id="aButt" to="/Om">Om</Link>
+                    <Link id="aButt" to="/">Hem</Link>
+                    <Link id="aButt" to="/Secret">Admin</Link>
                 </>
                 )}
                 </div>
@@ -52,7 +52,7 @@ function Header() {
                 {!tokenOk ? (
                 <Link className="loginButt" to="/Login">&#128274;</Link>
                 ) : (
-                <div className="loginButt" onClick={deleteCookie}>&#128275;</div>
+                <div style={{cursor: "pointer"}}  className="loginButt" onClick={deleteCookie}>&#128275;</div>
                 )}
                 </div>
             </nav>
