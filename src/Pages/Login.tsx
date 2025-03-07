@@ -26,7 +26,7 @@ const Login = () => {
         const data = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.error);
+            throw new Error(data.error || "ogiltiga uppgifter");
         }else {
 
             Cookies.set("token", data.recivedToken.token, {expires: 1});
@@ -34,7 +34,7 @@ const Login = () => {
             navigate("/Secret");
         
         }} catch(error: any) {
-            setError(error)
+            setError(error.message);
         }
     }
 
