@@ -32,7 +32,7 @@ function Header() {
             <nav className="navFull">
                 <div className='container'>
                     <Link to="/">
-                        <img src="public/FaktaflowLogo.png" alt="Logo" width="35%" height="fit-content" />
+                        <img src="/FaktaflowLogo.png" alt="Logo" width="35%" height="fit-content" />
                     </Link>
                 </div>
                 <div className="container">
