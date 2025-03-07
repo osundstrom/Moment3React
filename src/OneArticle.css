@@ -1,0 +1,53 @@
+#divOneArt img{
+    width: fit-content;
+    max-width: 68vw;
+    height: 34vh;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+#divOneArt{
+    text-align: left;
+}
+
+#divOneArt h2:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px){
+    #divOneArt img{
+        width: fit-content;
+        max-width: 80vw;
+        height: 25vh;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 10px;
+    }
+}
+
+
+
+/*-------------------------------------------------------------------*/
+/*infoArticle*/
+
+#divInfo{
+    margin-top: 1vh;
+}
+
+#divInfo img{
+    border-radius: 10px;
+}
+
+
+@media (max-width: 768px){
+    #divInfo img{
+        width: fit-content;
+        max-width: 90vw;
+        height: 25vh;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 10px;
+    }
+}

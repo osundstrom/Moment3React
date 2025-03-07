@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "../OneArticle.css";
 
 const OneArticle = ({ article }: { article: any,}) => {
     
@@ -13,13 +14,14 @@ const OneArticle = ({ article }: { article: any,}) => {
 
     //-------------------------------------RETURN----------------------------------------------------//
     return (
-        <div style={{cursor: 'pointer'}} className="card" onClick={openArticle}>
+        <div id="divOneArt" style={{cursor: 'pointer'}} className="" onClick={openArticle}>
             <div className="card-body">
-                <h5 className="card-title">{article.title}</h5>
-                <p className="card-text">{article.description}</p>
                 <img src={article.image} className="card-img-bottom" alt="..." />
+                <h2 className="card-title">{article.title}</h2>
+                <p className="card-text">{article.description}</p>
                 <p className="card-text"><small className="text-body-secondary">Publicerat: {new Date(article.post_created).toLocaleDateString()} Av: {article.author}</small></p>
             </div>
+            
         </div>
         
 

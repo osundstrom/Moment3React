@@ -67,7 +67,7 @@ const fetchArticles = async () => {
     return (
         <div className="container overflow-hidden text-center">
   <div className="row gx-5">
-    <div className="col">
+    <div className="col-12 col-md-6">
      <div className="p-3">{/*Lista alla artiklar*/}
         <h5>Alla artiklar</h5>
         <hr />

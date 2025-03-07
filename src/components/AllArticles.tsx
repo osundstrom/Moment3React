@@ -65,7 +65,9 @@ return (
     <>
       
       <main className="container text-center mainFull">
-
+        <br />
+        <h1 style={{ textAlign: "left", marginLeft: "2%" }}>Nyheter</h1>
+        <hr />
 
         {loading && <p>Läser in nyheter...</p>}
         {error && <p>{error}</p>}

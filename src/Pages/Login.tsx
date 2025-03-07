@@ -43,8 +43,9 @@ const Login = () => {
             <h2>Logga in</h2>
             <form onSubmit={fetchLogin}>
                 <div className="form-group">
-                    <label htmlFor="username">Användarnamn:</label>
+                    <label className="form-label" htmlFor="username">Användarnamn:</label>
                     <input
+                        className="form-control"
                         type="text"
                         id="username"
                         value={username}
@@ -52,8 +53,9 @@ const Login = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">Lösenord:</label>
+                    <label className="form-label" htmlFor="password">Lösenord:</label>
                     <input
+                        className="form-control"
                         type="password"
                         id="password"
                         value={password}
@@ -61,7 +63,8 @@ const Login = () => {
                     />
                 </div>
                 {error && <p className="error-text">{error}</p>}
-                <button type="submit">Logga in</button>
+                <br />
+                <button className="btn btn-primary" type="submit">Logga in</button>
             </form>
         </div>
     );

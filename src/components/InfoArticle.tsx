@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "../OneArticle.css";
 
 interface oneArticle {
     _id: string;
@@ -64,9 +65,9 @@ const InfoArticle = () => {
     
     
     return (
-        <div className="container">
+        <div id="divInfo" className="container">
             <img src={article.image} className="" alt="..." />
-            <hr />
+            <br />
             {error && <p>{error}</p>}
             <h1>{article.title}</h1>
                 <p className="">{article.content}</p>
