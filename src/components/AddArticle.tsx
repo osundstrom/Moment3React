@@ -78,7 +78,7 @@ const imageReader = (e: React.ChangeEvent<HTMLInputElement>) => {
             return;
         }
 
-        const response = await fetch("http://localhost:3000/article", {
+        const response = await fetch("https://moment3backend.onrender.com/article", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

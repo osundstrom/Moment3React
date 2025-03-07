@@ -37,7 +37,7 @@ const InfoArticle = () => {
         try {
           setLoading(true); //startar laddning/texten för laddning visas.
     
-          const response = await fetch(`http://localhost:3000/article/${id}`);
+          const response = await fetch(`https://moment3backend.onrender.com/article/${id}`);
           const data = await response.json();
     
           //Om reposne ej är ok

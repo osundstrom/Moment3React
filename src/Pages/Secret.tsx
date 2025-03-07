@@ -46,7 +46,7 @@ const fetchArticles = async () => {
     try {
       setLoading(true); 
 
-      const response = await fetch("http://localhost:3000/article");
+      const response = await fetch("https://moment3backend.onrender.com/article");
       const data = await response.json();
 
       if (!response.ok) {

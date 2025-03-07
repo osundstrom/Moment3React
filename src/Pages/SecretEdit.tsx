@@ -19,7 +19,7 @@ const EditArticle = () => {
 useEffect(() => {
     const fetchArticle = async () => {
         try {
-          const response = await fetch(`http://localhost:3000/article/${id}`);
+          const response = await fetch(`https://moment3backend.onrender.com/article/${id}`);
           const data = await response.json();
   
           if (response.ok) {
@@ -104,7 +104,7 @@ const imageReader = (e: React.ChangeEvent<HTMLInputElement>) => {
         return;
       }
   
-      const response = await fetch(`http://localhost:3000/article/${id}`, {
+      const response = await fetch(`https://moment3backend.onrender.com/article/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -137,7 +137,7 @@ const deleteArticle = async () => {
         return;
       }
        try {
-      const response = await fetch(`http://localhost:3000/article/${id}`, {
+      const response = await fetch(`https://moment3backend.onrender.com/article/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
