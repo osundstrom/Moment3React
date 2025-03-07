@@ -9,11 +9,12 @@ const Login = () => {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [error, setError] = useState<string | null>(null);
-
+   
     const navigate = useNavigate();
 
     const fetchLogin = async (e: React.FormEvent) => {
         e.preventDefault();
+        setError(null);
         try {
         const response = await fetch("https://moment3backend.onrender.com/login", {
             method: "POST",
@@ -62,7 +63,7 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                {error && <p className="error-text">{error}</p>}
+                {error && <p style={{ color: "red", fontSize: "1.2rem" }} className="error-text">{error}</p>}
                 <br />
                 <button className="btn btn-primary" type="submit">Logga in</button>
             </form>
