@@ -10,7 +10,7 @@ function About() {
 	<div className="container">
 		<div className="row align-items-center gx-4">
 			<div className="col-md-5">
-				<div className="ms-md-2 ms-lg-5"><img className="img-fluid rounded-3" src="/public/pers1.png"/></div>
+				<div className="ms-md-2 ms-lg-5"><img className="img-fluid rounded-3" src="/pers1.png"/></div>
 			</div>
 			<div className="col-md-6 offset-md-1">
 				<div className="ms-md-2 ms-lg-5">
