@@ -3,19 +3,23 @@ import Cookies from "js-cookie";
 import { ReactNode } from "react";
 import { useEffect } from "react";
 
-
+//kontrollera giltig coockie/jwt token
 const CheckCookie = ({children}: { children: ReactNode  }) => {
-    const navigate = useNavigate();
 
-    
+    const navigate = useNavigate();//hooke för navigering
+
+  
   useEffect(() => {
     
-    const token = Cookies.get("token");
+    const token = Cookies.get("token"); //hämtar token
+
+    //om token ej finns
     if (!token) {
-      navigate("/login"); 
+      navigate("/login");//till /login om token ej finns
       }
-    }, [navigate]); 
+    }, []); 
     
+    // rendera children(secret sidan/komponetne).
     return children;
   };
 

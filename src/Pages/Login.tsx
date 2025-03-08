@@ -3,19 +3,23 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 //import "../Login.css";
 
-
+//Login
 const Login = () => {
-        //states
+
+    //------------------------States------------------------------------------------//
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [error, setError] = useState<string | null>(null);
    
+
     const navigate = useNavigate();
 
+    //------------------------Post/login------------------------------------------------//
     const fetchLogin = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setError(null);
-        try {
+        e.preventDefault();// förhindra default
+        setError(null); //nollställ
+
+        try { //post föärfrågan
         const response = await fetch("https://moment3backend.onrender.com/login", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -26,10 +30,12 @@ const Login = () => {
 
         const data = await response.json();
 
+        //om response ej är ok
         if (!response.ok) {
             throw new Error(data.error || "ogiltiga uppgifter");
         }else {
 
+            //spara token i cookie
             Cookies.set("token", data.recivedToken.token, {expires: 1});
             console.log(data.token)
             navigate("/Secret");
@@ -42,7 +48,7 @@ const Login = () => {
     return (
         <div className="container">
             <h2>Logga in</h2>
-            <form onSubmit={fetchLogin}>
+            <form onSubmit={fetchLogin}> {/*fetchLogin vid submit*/}
                 <div className="form-group">
                     <label className="form-label" htmlFor="username">Användarnamn:</label>
                     <input
@@ -50,7 +56,7 @@ const Login = () => {
                         type="text"
                         id="username"
                         value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        onChange={(e) => setUsername(e.target.value)} //Uppdatera på ändring
                     />
                 </div>
                 <div className="form-group">
@@ -60,9 +66,10 @@ const Login = () => {
                         type="password"
                         id="password"
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e) => setPassword(e.target.value)} //Uppdatera på ändriogn
                     />
                 </div>
+                 {/*visa errro meddelande*/}
                 {error && <p style={{ color: "red", fontSize: "1.2rem" }} className="error-text">{error}</p>}
                 <br />
                 <button className="btn btn-primary" type="submit">Logga in</button>

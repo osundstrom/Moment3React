@@ -3,7 +3,7 @@ import "../Footer.css";
 
 function Footer() {
 
-
+    //scrolla till toppen av sidan
     const moveTop = () => {
         window.scrollTo({
             top: 0

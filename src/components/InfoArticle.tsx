@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../OneArticle.css";
 
+//-----------------Interface--------------------------------------------------------//
 interface oneArticle {
     _id: string;
     title: string;
@@ -22,13 +23,12 @@ const InfoArticle = () => {
     const [loading, setLoading] = useState<boolean>(false); 
     const [error, setError] = useState<string | null>(null); 
     
-    
+    //vid start av komponent
     useEffect(() => {
     fetchArticle();
-    }, [id]);
+    }, [id]); //kör om id ändras
 
     console.log(id)
-    
     
       //--------------------------------Hämta artiklar-----------------------------------------//
     

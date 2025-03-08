@@ -15,24 +15,24 @@ import SecretEdit from './Pages/SecretEdit.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<App />}>
-            <Route index element={<AllArticles />} />
-            <Route path="/articles/:id" element={<InfoArticle />} />
-            <Route path="/om" element={<About />} />
-            <Route path="/login" element={<Login />} />
-            <Route 
-                  path="/secret" element={
-                    <CheckCookie>
+    <BrowserRouter> {/*routing i webb*/}
+        <Routes> {/*alla rutter*/}
+            <Route path="/" element={<App />}> {/*route för startsida*/}
+            <Route index element={<AllArticles />} /> {/*vid "/" standard, så ladda komponent AllArticles */}
+            <Route path="/articles/:id" element={<InfoArticle />} /> {/*route för specifik artikel baserat på id*/}
+            <Route path="/om" element={<About />} /> {/*route för om sidan*/}
+            <Route path="/login" element={<Login />} /> {/*route för inlogg*/}
+            <Route  
+                  path="/secret" element={ //skyddad route för secret sidan, krävs att det finns en cookie med token
+                    <CheckCookie> {/*kollar om de finns en cookie med token/jwt*/}
                       <Secret />
                     </CheckCookie>
                   } 
                 />
 
             <Route 
-                  path="/secret/redigera/:id" element={
-                    <CheckCookie>
+                  path="/secret/redigera/:id" element={ // skyddad route för redigera artikel, krävs att det finns en cookie med token
+                    <CheckCookie>  {/*kollar om de finns en cookie med token/jwt*/}
                       <SecretEdit />
                     </CheckCookie>
                   } 

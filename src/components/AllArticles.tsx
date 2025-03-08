@@ -18,14 +18,14 @@ interface oneArticle {
   
 
 
-  const AllArticles = () => {
+const AllArticles = () => {
 
 //----------------------------------States------------------------------------------//
 const [articles, setArticles] = useState<oneArticle[] | []>([]); 
 const [loading, setLoading] = useState<boolean>(false); 
 const [error, setError] = useState<string | null>(null); 
 
-
+//körs vid start av komponent
 useEffect(() => {
 fetchArticles();
 }, []);
@@ -69,11 +69,13 @@ return (
         <h1 style={{ textAlign: "left", marginLeft: "2%" }}>Nyheter</h1>
         <hr />
 
+        {/* Visar loading och error meddelanden*/}
         {loading && <p>Läser in nyheter...</p>}
         {error && <p>{error}</p>}
 
         <div className="row g-4 m-3">
-        {articles.map(article => (
+        {/* visar alla artiklar */}
+        {articles.map(article => ( 
             <OneArticle key={article._id} article={article} />
         ))}
       </div>
