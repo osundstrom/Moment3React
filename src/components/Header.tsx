@@ -40,7 +40,7 @@ function Header() {
                 <div className='container'>
                 {/*Logo med länk till startsidan*/}
                     <Link to="/">
-                        <img src="/FaktaflowLogo.png" alt="Logo" width="35%" height="fit-content" />
+                        <img src="../public//bokkollen.png" alt="Logo" width="35%" height="fit-content" />
                     </Link>
                 </div>
                 <div className="container">
